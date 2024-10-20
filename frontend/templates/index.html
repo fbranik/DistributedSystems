@@ -10,22 +10,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"/>
 </head>
 <style>
-table, th, td, tr, div, thead{
-  border: 0px solid black;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
+    table, th, td, tr, div, thead {
+        border: 0px solid black;
+    }
+
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
 </style>
 <body>
 <h1>Noobcash Coin</h1>
 {% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-danger" role="alert">{{ message }}</div>
-{% endfor %}
-{% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
 {% endwith %}
 <form method="post" action="/">
 
@@ -53,7 +54,7 @@ table.center {
                     <div class="dropdown">
                         <select class="form-select" aria-label="Recipient Node" name="recipient">
                             {% for c in nodeList %}
-                            <option>{{ c }}</option>
+                                <option>{{ c }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -72,22 +73,24 @@ table.center {
         </table>
     </div>
     <div class="table-responsive">
-       <div class="table-responsive">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Transactions of Last Block</th>
-                <th style="text-align: right;">
-                    <button class="btn btn-primary" type="submit" name="action" value="view">Refresh View</button>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr><td/><td>{{view|safe}}</td></tr>
-            </tbody>
-        </table>
-    </div>
-
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Transactions of Last Block</th>
+                    <th style="text-align: right;">
+                        <button class="btn btn-primary" type="submit" name="action" value="view">Refresh View</button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td/>
+                    <td>{{ view|safe }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
 </form>
 <script src="assets/js/jquery.min.js"></script>

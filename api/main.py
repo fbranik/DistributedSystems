@@ -55,10 +55,11 @@ def shutdown():
 def writeBlockLogs():
     if exists(f'logs/block{myNode.Id}_{myNode.chain.sizeOfBlock}_{myNode.difficulty}_{myNode.numOfMiningThreads}.txt'):
         removeFile(
-            f'logs/block{myNode.Id}_{myNode.chain.sizeOfBlock}_{myNode.difficulty}_{myNode.numOfMiningThreads}.txt')
+                f'logs/block{myNode.Id}_{myNode.chain.sizeOfBlock}_{myNode.difficulty}_{myNode.numOfMiningThreads}.txt')
 
     block_log = open(
-        f'logs/block{myNode.Id}_{myNode.chain.sizeOfBlock}_{myNode.difficulty}_{myNode.numOfMiningThreads}.txt', 'w+')
+            f'logs/block{myNode.Id}_{myNode.chain.sizeOfBlock}_{myNode.difficulty}_{myNode.numOfMiningThreads}.txt',
+            'w+')
     for iBlock in myNode.chain.listOfBlocks:
         block_log.write(f'{iBlock.addedToChainTimestamp - iBlock.miningStartedTimestamp}\n')
     block_log.close()
@@ -73,6 +74,7 @@ def getNodeInfo():
             continue
         toSend.append(k)
     return jsonify(toSend)
+
 
 if __name__ == '__main__':
     from argparse import ArgumentParser

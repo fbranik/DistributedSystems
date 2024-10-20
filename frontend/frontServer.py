@@ -5,18 +5,19 @@ import requests
 import pandas as pd
 from re import sub
 
-
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
 log.disabled = True
 Bootstrap(app)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
+
 def trViewToHTML(view):
     df = pd.DataFrame(data=view)
     df = df.fillna(' ').T
     temp = df.to_html()
     return temp
+
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -41,10 +42,10 @@ def index():
             return render_template('index.html', balance=balance, nodeList=nodes, view=view)
 
         elif request.form['action'] == 'transaction':
-            recipientNodeId   = request.form['recipient']
+            recipientNodeId = request.form['recipient']
             transactionAmount = request.form['amount']
 
-            if transactionAmount !='':
+            if transactionAmount != '':
                 url = f'http://{nodeIp}:{nodePort}/api/createNewTransaction/?recipientId={int(recipientNodeId)}&amount={int(transactionAmount)}'
                 res = requests.get(url)
                 if res.status_code == 500:

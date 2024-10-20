@@ -6,7 +6,7 @@ from requests import get
 def nodeWatcher(myNode: Node):
     isRunning = open('isRunning.txt', 'w+')
     isRunning.write(
-        f'Running sizeOfBlock={myNode.chain.sizeOfBlock}, difficulty={myNode.difficulty}, numOfMiningThreads={myNode.numOfMiningThreads}\n')
+            f'Running sizeOfBlock={myNode.chain.sizeOfBlock}, difficulty={myNode.difficulty}, numOfMiningThreads={myNode.numOfMiningThreads}\n')
     isRunning.close()
     sleep(100)
     while not myNode.miningQueue.empty() and len(myNode.chain.listOfBlocks) > 1:

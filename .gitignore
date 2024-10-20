@@ -1,5 +1,6 @@
-.idea//*
+/.idea//*
 /.idea/DistributedSystems.iml
+/.idea/jupyter-settings.xml
 /.idea/modules.xml
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/inspectionProfiles/Project_Default.xml
