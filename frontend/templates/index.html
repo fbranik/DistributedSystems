@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>distrib2023</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"/>
+</head>
+<style>
+table, th, td, tr, div, thead{
+  border: 0px solid black;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<body>
+<h1>Noobcash Coin</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger" role="alert">{{ message }}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form method="post" action="/">
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>New Transaction</th>
+                <th style="text-align: right;" id="balance">Balance: {{ balance }}</th>
+                <th style="text-align: right;">
+                    <button class="btn btn-primary" type="submit" style="font-size: 10;" name="action"
+                            value="refreshBalance">Refresh Balance
+                    </button>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Receiver</td>
+                <td>Amount</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>
+                    <div class="dropdown">
+                        <select class="form-select" aria-label="Recipient Node" name="recipient">
+                            {% for c in nodeList %}
+                            <option>{{ c }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <input type="number" name="amount" min="0" value="10">
+                </td>
+                <td style="text-align: right;">
+                    <button class="btn btn-primary" type="submit" style="text-align: justify;" name="action"
+                            value="transaction">Confirm
+                        Transaction
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive">
+       <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Transactions of Last Block</th>
+                <th style="text-align: right;">
+                    <button class="btn btn-primary" type="submit" name="action" value="view">Refresh View</button>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td/><td>{{view|safe}}</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</form>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
