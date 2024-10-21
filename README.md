@@ -5,7 +5,7 @@ Completed at ECE NTUA.
 
 The following table sums up the contents of each file/directory.
 
-| Directory              | Comment                                                              |
+| Directory/File         | Comment                                                              |
 |------------------------|----------------------------------------------------------------------|
 | api                    | code for the api used for communication between nodes/clients/miners |
 | backend                | code for the backend which implements all the features               |
