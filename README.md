@@ -58,7 +58,9 @@ have been implemented to be executed on different threads on each node.
 The above shows an instance of the simple interface in the web-based frontend.
 It implements features like creating a new transaction and a log of the most recent transactions.
 
-### Backend and API
+[//]: # (### Backend and API)
 
-For details about the backend and the API, please refer to the corresponding directories ([backend](backend)
-and [api](api)).
+[//]: # ()
+[//]: # (For details about the backend and the API, please refer to the corresponding directories &#40;[backend]&#40;backend&#41;)
+
+[//]: # (and [api]&#40;api&#41;&#41;.)
